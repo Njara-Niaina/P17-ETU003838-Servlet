@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <!-- Description de l'application -->
+    <display-name>Gestion de Budget</display-name>
+    <description>Application de gestion de budget avec prévisions, dépenses et états</description>
+
+    <!-- Page d'accueil -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>Prevision</servlet-name>
+        <servlet-class>com.helloword.PrevisionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Prevision</servlet-name>
+        <url-pattern>/prevision</url-pattern>
+    </servlet-mapping>
+
+    <!-- Gestion des erreurs -->
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/WEB-INF/views/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/404.jsp</location>
+    </error-page>
+
+    <!-- Configuration de la session -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>
